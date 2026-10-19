@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 성공 - HSPT AI1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Pretendard", sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            padding: 20px;
+        }
+        .card {
+            width: 100%;
+            max-width: 460px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+            padding: 44px 36px;
+            text-align: center;
+            animation: zoomIn 0.35s ease-out;
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .badge-icon {
+            font-size: 56px;
+            margin-bottom: 12px;
+        }
+        .title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+        .welcome-msg {
+            font-size: 16px;
+            color: #475569;
+            margin-bottom: 28px;
+        }
+        .welcome-msg strong {
+            color: #2563eb;
+            font-weight: 700;
+        }
+        .info-table {
+            width: 100%;
+            background: #f8fafc;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            margin-bottom: 28px;
+            text-align: left;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            font-size: 14px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        .info-label {
+            color: #64748b;
+            font-weight: 500;
+        }
+        .info-value {
+            color: #0f172a;
+            font-weight: 600;
+        }
+        .badge-active {
+            background: #dcfce7;
+            color: #15803d;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .logout-btn {
+            display: inline-block;
+            width: 100%;
+            height: 48px;
+            line-height: 48px;
+            background: #f1f5f9;
+            color: #475569;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .logout-btn:hover {
+            background: #e2e8f0;
+            color: #0f172a;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="badge-icon">🎉</div>
+        <h1 class="title">로그인 성공!</h1>
+        <p class="welcome-msg"><strong>{{USER_NAME}}</strong> 님, 환영합니다.</p>
+
+        <div class="info-table">
+            <div class="info-row">
+                <span class="info-label">회원 번호 (userNo)</span>
+                <span class="info-value">{{USER_NO}}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">이름 (userName)</span>
+                <span class="info-value">{{USER_NAME}}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">아이디 (userId)</span>
+                <span class="info-value">{{USER_ID}}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">인증 상태</span>
+                <span class="info-value"><span class="badge-active">인증 완료 (MySQL)</span></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">접속 일시</span>
+                <span class="info-value">{{LOGIN_TIME}}</span>
+            </div>
+        </div>
+
+        <a href="/" class="logout-btn">로그아웃 (로그인 화면으로)</a>
+    </div>
+</body>
+</html>
